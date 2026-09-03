@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family :'Poppins' ,sans-serif;
+    background: linear-gradient(180deg , #a196ef1f , #9e92f50f); 
+    margin: 0;
+    min-height: 100vh;
+  }
+  header {
+    
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  header h1 { font-size: 18px; margin: 0; }
+  /* #logoutBtn {
+    padding: 8px 16px;
+    background: #ef4444;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+  } */
+     .logo {
+    height: 60px;       /* adjust size here */
+    width: auto;
+    display: block;
+  }
+.logo-link {
+    display: inline-block;
+  }
+  #checking {
+    text-align: center;
+    color: #666;
+    margin-top: 100px;
+  }
+.BAC{
+  color: var(--secondary-color);
+}
+  .welcome-card {
+    background :white;
+    opacity: 0.2;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    text-align: center;
+    margin-top: 50px;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .welcome-card:hover{
+    transform:scale(1.05) ;
+    box-shadow: 0 8px 30px rgba(128, 0, 225, 0.3) ;
+}
+  .welcome-card h2 {
+    font-size: 24px;
+    margin: 0 0 10px;
+    color: black;
+  }
+  .welcome-card p {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+  }
+  button{
+    float: right;
+  }
+
+  .video{
+    background: white;
+    border: none;
+    border-radius: 15px;
+    width: 50%;
+  }
+.hello{
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  header { flex-direction: column; gap: 10px; text-align: center; padding: 16px; }
+  .hello { flex-direction: column; align-items: center; }
+  .welcome-card { width: 90%; margin-top: 24px; }
+}
+</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+</head>
+<body>
+
+  <header>
+    <img src="images/signature_icon_512px (1).png" , class="logo" alt="">
+    <a href="index.html#courses" class="commonBtnLog">
+      Start Studying
+    </a>
+  </header>
+  <main class="hello">
+    
+    <div class="welcome-card" data-aos="zoom-in">
+      <h2>Welcome, and congratulations on <span class="BAC"> your BAC! 🎉</span></h2> <br> <hr><br>
+      <p>
+        We're so glad to have you with us. Here's a short podcast with some advice
+        to help you as you start this next chapter.
+      </p>
+      <br>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore totam, cumque accusamus quae vero veniam ea nihil repudiandae neque voluptas, iusto est laborum porro voluptatem, illum quia atque quod ipsum?</p> <br>
+      <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium, necessitatibus quaerat, vitae asperiores quibusdam vero laborum molestias accusamus, dolor consequatur corrupti. Temporibus, aperiam quisquam quia aliquam accusantium vel animi magni.</p>
+      <br>
+      <br>
+      <a href="https://www.youtube.com/watch?v=5-WnZLby-Wk&t=6s&pp=ygUQ2K_ZitmGINmIINi32YrZhg%3D%3D"><button class="commonBtn" style="width: auto; text-align: center;">Listen To Podcast</button></a>
+    </div>
+   
+</main>
+
+<script type="module">
+  import { auth } from "./firebase-config.js";
+  import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+  // Just confirms someone is logged in — access.html already verified
+  // their payment/tier before ever sending them here, so no need to
+  // re-check approval on every page.
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      window.location.href = "access.html";
+    }
+  });
+</script>
+
+<!-- AOS jS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- custom js -->
+    <script src="custom.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+</html>
